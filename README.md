@@ -84,7 +84,7 @@ Communication happens via sockets:
 8. Use **NEXT** and **BACK** to navigate through assembly steps.
 9. Once the model is complete, press **RETRY** to start again.
 
-![Visual interface](lego_15.jpg)
+![lego_15](https://github.com/user-attachments/assets/20df341b-7ea8-410d-a554-f27cabe14bd0)
 
 ## Authors
 
@@ -105,11 +105,11 @@ Communication happens via sockets:
 * FSM structure inspired by UX in AR-assisted assembly workflows
 * ChatGPT (OpenAI)
 
-#### Faculty
+## Faculty
 
-[Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
-[Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
-[Pit Siebenaler](https://github.com/pitsieben)
+* [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
+* [Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
+* [Pit Siebenaler](https://github.com/pitsieben)
 
 #### Acknowledgements
 
