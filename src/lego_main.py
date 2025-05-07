@@ -20,7 +20,7 @@ def send_udp_message(msg):
         print(f"[UDP Error] {e}")
 
 # === CÁMARA ===
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(1)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 720)
 cap.set(cv2.CAP_PROP_FPS, 30)
