@@ -168,7 +168,3 @@ Communication happens via sockets:
 * [Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
 * [Pit Siebenaler](https://github.com/pitsieben)
 
-#### Acknowledgements
-
-* GitHub template: [Marita Georganta](https://www.linkedin.com/in/marita-georganta/)
-* MRAC-IAAC GitHub Structure: [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
