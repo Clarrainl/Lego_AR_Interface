@@ -141,11 +141,7 @@ Communication happens via sockets:
 8. Use **NEXT** and **BACK** to navigate through assembly steps.
 9. Once the model is complete, press **RETRY** to start again.
 
-<<<<<<< HEAD
 ![lego\_15](https://github.com/user-attachments/assets/20df341b-7ea8-410d-a554-f27cabe14bd0)
-=======
-![lego_15](https://github.com/user-attachments/assets/20df341b-7ea8-410d-a554-f27cabe14bd0)
->>>>>>> 5ab9d9bfaf3a76d1facb7bbc7624438ab0d1f67d
 
 ## Authors
 
@@ -160,27 +156,18 @@ Communication happens via sockets:
 * [Ultralytics YOLO](https://docs.ultralytics.com/)
 * [OpenCV](https://opencv.org/)
 
-## Faculty
-
-* [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
-* [Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
-* [Pit Siebenaler](https://github.com/pitsieben)
-
 ## Credits
 
 * Rhino + Grasshopper interface design – \[Your Name / Collaborator]
 * FSM structure inspired by UX in AR-assisted assembly workflows
 * ChatGPT (OpenAI)
 
-<<<<<<< HEAD
-=======
 ## Faculty
 
 * [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
 * [Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
 * [Pit Siebenaler](https://github.com/pitsieben)
 
->>>>>>> 5ab9d9bfaf3a76d1facb7bbc7624438ab0d1f67d
 #### Acknowledgements
 
 * GitHub template: [Marita Georganta](https://www.linkedin.com/in/marita-georganta/)
