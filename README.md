@@ -17,6 +17,8 @@ This project explores an augmented reality interface to guide the assembly of LE
 
 This project is an interactive augmented tabletop for building LEGO models. Users place real LEGO bricks on a scanning zone, and the system uses computer vision to detect the pieces and guide the user through the construction of one of several predefined models using a visual interface projected on the table.
 
+![Slide 1](data/interface_images/pp_images/ppt-01.jpg)
+
 ### System Architecture
 
 **Backend (Python)**
@@ -32,12 +34,28 @@ This project is an interactive augmented tabletop for building LEGO models. User
 * Displays UI components including buttons and step guidance.
 * Projects the interface using a top-down projector.
 
+![Slide 4](data/interface_images/pp_images/ppt-04.jpg)
+
 ### Key Scripts
 
 * `lego_main.py`: Handles camera input, hand detection, FSM updates, and YOLOv8 execution during scanning.
 * `lego_fsm_controller.py`: Defines FSM logic, including all transitions and input handling.
 
+### User Flow
+
+The experience is structured in the following sequence:
+
+1. **Start** – Welcome screen invites user to press the projected START button.
+2. **Scan** – LEGO pieces are scanned via camera and YOLOv8.
+3. **Choose** – The system suggests possible LEGO builds based on detected pieces.
+4. **Assembly** – User follows projected step-by-step instructions.
+5. **Finish** – Model is completed. The RETRY button is shown to start over.
+
+![User Flow Diagram](data/interface_images/pp_images/ppt-03.jpg)
+
 ### FSM States
+
+![Slide 5](data/interface_images/pp_images/ppt-05.jpg)
 
 **🟢 START**
 
@@ -117,6 +135,16 @@ Main libraries used:
 
 ### Structure
 
+### Interface
+
+![Interface Design](data/interface_images/pp_images/ppt-02.jpg)
+
+The user interface is projected on the tabletop via Rhino + Grasshopper. It is designed to be:
+
+* Highly visual and gesture-interactive.
+* Intuitive, using circular buttons (Start, Retry, Back, Next).
+* Step-by-step visual with real-time piece highlighting.
+* Completely touchless via finger hover detection using MediaPipe.
 * `lego_main.py`: Main script for video input, hand detection, and FSM control.
 * `lego_fsm_controller.py`: FSM logic that manages all UI states and transitions.
 * `FSM_Lego final.gh`: Grasshopper definition that receives UDP data and renders the UI.
@@ -141,7 +169,10 @@ Communication happens via sockets:
 8. Use **NEXT** and **BACK** to navigate through assembly steps.
 9. Once the model is complete, press **RETRY** to start again.
 
-![Demo](data/interface_images/ppt_images/demo.gif)
+
+
+![Slide 6](data/interface_images/pp_images/ppt-06.jpg)
+![Demo GIF](data/interface_images/pp_images/demo.gif)
 
 ## Authors
 
@@ -156,15 +187,19 @@ Communication happens via sockets:
 * [Ultralytics YOLO](https://docs.ultralytics.com/)
 * [OpenCV](https://opencv.org/)
 
-## Credits
-
-* Rhino + Grasshopper interface design – \[Your Name / Collaborator]
-* FSM structure inspired by UX in AR-assisted assembly workflows
-* ChatGPT (OpenAI)
-
 ## Faculty
 
 * [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
 * [Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
 * [Pit Siebenaler](https://github.com/pitsieben)
 
+## Credits
+
+* Rhino + Grasshopper interface design – \[Your Name / Collaborator]
+* FSM structure inspired by UX in AR-assisted assembly workflows
+* ChatGPT (OpenAI)
+
+#### Acknowledgements
+
+* GitHub template: [Marita Georganta](https://www.linkedin.com/in/marita-georganta/)
+* MRAC-IAAC GitHub Structure: [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
