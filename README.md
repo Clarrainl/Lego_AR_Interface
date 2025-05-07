@@ -1,86 +1,117 @@
-# Group Project Repository Submission Template 
+# Lego\_AR\_Interface
+
 ## Index
-  - [Overview](#overview) 
-  - [Getting Started](#getting-started)
-  - [Demo](#demo)
-  - [Authors](#authors)
-  - [References](#references)
-  - [Credits](#credits)
-<!--  Other options to write Readme
-  - [Deployment](#deployment)
-  - [Used or Referenced Projects](Used-or-Referenced-Projects)
--->
-## MRAC0X(XX/XX): ClassName XX - Student Project Name
-<!--Write a few sentences of academic context and project description -->  
-This project aims to demonstrate a fantastic application using fascinating technologies, developed within the scope of the best class ever.   
+
+* [Overview](#overview)
+* [Getting Started](#getting-started)
+* [Demo](#demo)
+* [Authors](#authors)
+* [References](#references)
+* [Credits](#credits)
+
+## MRAC24-25: Hardware III - Lego\_AR\_Interface
+
+This project explores an augmented reality interface to guide the assembly of LEGO sets through hand gesture interaction. The user interacts via a UI projected in Rhino using Grasshopper, and their hand movements are detected by a webcam. A finite state machine (FSM) controls the process flow and communicates with Grasshopper using UDP.
+
 ## Overview
-<!-- Write Overview about this project -->
-The project's justification, state-of-the-art, and inspiration live in this section.
+
+Lego\_AR\_Interface combines computer vision, a custom FSM, and an object detection model (YOLO) to visually guide LEGO assembly. Inspired by AR-assisted workflows, the system runs in Rhino + Grasshopper and uses a webcam to track the user's hand. Actions such as "scan", "next step", or "retry" are triggered in real time based on hand gestures.
+
+### System States:
+
+* **START**: User places LEGO pieces.
+* **SCAN**: Pieces are detected using YOLO.
+* **CHOOSE**: User selects a proposed model to build.
+* **ASSEMBLY**: Step-by-step assembly guidance.
+* **FINISH**: Completion of the model.
 
 ## Getting Started
 
 ### Prerequisites
-Ensure that you fulfill the following criteria to replicate this project.
-* Ubuntu LTS 20.04 <
-* Python 3.7 <
-* Docker
 
-### Depencies
-The project's dependencies include:
-* Numpy - for matrix manipulation
-* OpenCV - for image processing
-* ROS - for interfacing with the robot
+* Windows with Rhino 8
+* Python 3.9 (specifically)
+* OpenCV-compatible webcam
 
-The dependencies are satisfied using the following sources:
+### Create virtual environment
 
-```bash
-# ROS Noetic and core dependencies
-wget -c https://raw.githubusercontent.com/qboticslabs/ros_install_noetic/master/ros_install_noetic.sh && chmod +x ./ros_install_noetic.sh && ./ros_install_noetic.sh
-# install numpy
-pip3 install numpy setuptools
+We recommend using a Python 3.9 virtual environment. For example:
+
+```cmd
+py -3.9 -m venv .lego_ar_interface
+.\.lego_ar_interface\Scripts\activate
 ```
 
-### Installing
-A step by step series of examples that tell you how to get a development 
-env running
+### Dependencies
 
-```bash
-cd ~/catkin_ws/src
-git submodule init
-git submodule update
-cd ../
-rosdep install --from-paths src --ignore-src -r -y
-catkin_make -DCMAKE_BUILD_TYPE=Release
-source ./devel/setup.bash
+Install all dependencies from `requirements.txt`:
+
+```cmd
+pip install -r requirements.txt
 ```
-### Deployment
-Add additional notes about how to deploy this on a live system
-* Run the application with `.docker/run_user_nvidia.sh`
-* Ensure that you are running the indicate command `sudo chmod -R <user_name> \dev_ws` for permitions
-* Run `terminator`
+
+Main libraries used:
+
+* `mediapipe` – hand detection
+* `opencv-python` – video capture and UI
+* `ultralytics` – YOLOv8 model
+* `torch`, `torchvision` – model inference
+* `numpy`, `pandas`, `matplotlib`, `seaborn` – data processing
+
+### Structure
+
+* `lego_main.py`: Main script for video input, hand detection, and FSM control.
+* `lego_fsm_controller.py`: FSM logic that manages all UI states and transitions.
+* `FSM_Lego final.gh`: Grasshopper definition that receives UDP data and renders the UI.
+
+### UDP Communication
+
+Communication happens via sockets:
+
+* IP: `127.0.0.1`
+* Port: `5005`
+* Messages include: `state`, `step`, `selected_set`, `pos_x`, `pos_y`
 
 ## Demo
-Here is what the project can do and what are the results.
 
-The project can be launched with the following command:
-* `roslaunch package_name package_name.launch`
+1. Open **Rhino 8** and **Grasshopper**.
+2. Project the Rhino window onto a table surface using a projector.
+3. Make sure the interface (Grasshopper UI) is properly aligned on the surface.
+4. Run the script `lego_main.py` on your computer. A simplified UI window will open showing real-time finger tracking.
+5. Press **START** using your finger over the projected interface. A 5-second countdown will begin so you can remove your hand from the table.
+6. The system scans the LEGO pieces on the surface using YOLO and proposes possible models to build.
+7. Select a model. The script sends the center point of each required piece via UDP to Grasshopper, which highlights them with colored circles.
+8. Use **NEXT** and **BACK** to navigate through assembly steps.
+9. Once the model is complete, press **RETRY** to start again.
 
-This opens up `rviz` and shows the robot moving around
+![Visual interface](lego_15.jpg)
 
 ## Authors
-  - [Name](insert linkedin/webpage link) - role
+
+* [Mau Weber](https://github.com/Mauweberla)
+* [Javi Albo](https://github.com/j-albo)
+* [Eli Frias](https://github.com/elicolds)
+* [Charlie Larraín](https://github.com/Clarrainl)
 
 ## References
-- [K. Albee et al., “A robust observation, planning, and control pipeline for autonomous rendezvous with tumbling targets,” Frontiers in Robotics and AI, vol. 8, p. 234, 2021, doi: 10.3389/frobt.2021.641338.](https://www.frontiersin.org/articles/10.3389/frobt.2021.641338/full)
+
+* [MediaPipe Hands](https://google.github.io/mediapipe/solutions/hands.html)
+* [Ultralytics YOLO](https://docs.ultralytics.com/)
+* [OpenCV](https://opencv.org/)
 
 ## Credits
-  - [Name](insert linkedin/webpage link) - role
 
-<!--  DO NOT REMOVE
--->
+* Rhino + Grasshopper interface design – \[Your Name / Collaborator]
+* FSM structure inspired by UX in AR-assisted assembly workflows
+* ChatGPT (OpenAI)
+
+#### Faculty
+
+[Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
+[Sameer Kishore](https://linkedin.com/in/sameer-kishore-635624bb/)
+[Pit Siebenaler](https://github.com/pitsieben)
+
 #### Acknowledgements
 
-- Creation of GitHub template: [Marita Georganta](https://www.linkedin.com/in/marita-georganta/) - Robotic Sensing Expert
-- Creation of MRAC-IAAC GitHub Structure: [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/) - Robotic Researcher
-
-
+* GitHub template: [Marita Georganta](https://www.linkedin.com/in/marita-georganta/)
+* MRAC-IAAC GitHub Structure: [Huanyu Li](https://www.linkedin.com/in/huanyu-li-457590268/)
