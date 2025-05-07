@@ -141,7 +141,7 @@ Communication happens via sockets:
 8. Use **NEXT** and **BACK** to navigate through assembly steps.
 9. Once the model is complete, press **RETRY** to start again.
 
-![lego\_15](https://github.com/user-attachments/assets/20df341b-7ea8-410d-a554-f27cabe14bd0)
+![Demo](data/interface_images/ppt_images/demo.gif)
 
 ## Authors
 
