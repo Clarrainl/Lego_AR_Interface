@@ -1,0 +1,14 @@
+train: C:/Users/clarr/Desktop/YOLOO/dataset/train/images
+val:   C:/Users/clarr/Desktop/YOLOO/dataset/valid/images
+test:  C:/Users/clarr/Desktop/YOLOO/dataset/test/images
+
+
+nc: 22
+names: ['Special_02', 'brick_1x1', 'brick_1x2', 'brick_1x3', 'brick_1x4', 'brick_1x6', 'brick_2x2', 'brick_2x3', 'brick_2x4', 'plate_1x10', 'plate_1x4', 'plate_2x10', 'plate_2x2', 'plate_2x3', 'plate_2x4', 'plate_6x4', 'plate_8x1', 'plate_8x2', 'special_04', 'special_05', 'special_06', 'special_08']
+
+roboflow:
+  workspace: lego-fvnvf
+  project: lego-n4ulh
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/lego-fvnvf/lego-n4ulh/dataset/3
